@@ -4,11 +4,86 @@
   
     
     <entry>
+      <title>hexo主题魔改</title>
+      <link href="/2022/11/22/hexo%E4%B8%BB%E9%A2%98%E9%AD%94%E6%94%B9/"/>
+      <url>/2022/11/22/hexo%E4%B8%BB%E9%A2%98%E9%AD%94%E6%94%B9/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+      
+      
+      <categories>
+          
+          <category> -博客相關 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> -web前端 -hexo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Butterfly主題一些使用方法</title>
+      <link href="/2022/11/22/butterfly%E4%B8%BB%E9%A1%8C%E4%B8%80%E4%BA%9B%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/"/>
+      <url>/2022/11/22/butterfly%E4%B8%BB%E9%A1%8C%E4%B8%80%E4%BA%9B%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+      
+      
+      <categories>
+          
+          <category> -博客相關 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> -web前端 -hexo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>利用Hexo和Vercel搭建博客</title>
+      <link href="/2022/11/22/%E7%94%A8Hexo%E5%92%8CVercel%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/"/>
+      <url>/2022/11/22/%E7%94%A8Hexo%E5%92%8CVercel%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><blockquote><p>方法參考Fomalhaut文章:<a href="https://www.fomal.cc/posts/e593433d.html">Hexo博客搭建教程(一)</a>、<a href="https://www.fomal.cc/posts/4aa2d85f.html">Hexo博客搭建教程(二)</a><br>使用的主题是butterfly<a href="https://butterfly.js.org/">官方文档</a></p></blockquote><h2 id="1-前言"><a href="#1-前言" class="headerlink" title="1.前言"></a>1.前言</h2><p>  我們平時搭博客通常要麼買個服務器用wordpress搞一個，或者布署到github page上，前者需要億點點的錢(去華為雲看了下一個普通服務器一年要几百大洋，果斷放弃)，後者只能放靜態頁面，可玩性和便捷程序就差了點。而vercel將會拯救我們，這是一個站點托官的平台，提供Production和Development环境，还支持持續集成，功能和速度比github page好，还支持部署serverless接口，可以部署動態網站，會自動幫你配置https，最重要的是,他還不收錢!簡直想立馬跪拜了好嗎!</p><h2 id="2-環境與工具準備"><a href="#2-環境與工具準備" class="headerlink" title="2.環境與工具準備"></a>2.環境與工具準備</h2><ul><li>操作系统:Windows11</li><li>Node</li><li>Git</li><li>Hexo</li><li>GitHub帳號</li><li>域名(可選)</li></ul><h2 id="3-開始"><a href="#3-開始" class="headerlink" title="3.開始!"></a>3.開始!</h2><h3 id="3-1-安裝Node-js"><a href="#3-1-安裝Node-js" class="headerlink" title="3.1 安裝Node.js"></a>3.1 安裝Node.js</h3><p>Node.js是一个基于Chrome V8引擎的JavaScript运行環境，可謂是把原本只能由浏覧器解析的js给抬起來了。下載地址:<a href="https://nodejs.org/en/download/">https://nodejs.org/en/download/</a>，最好下個穩定版，也不用因為怕以後要裝的東西版本不兼容而跑去裝上古版本，到時真不行就用nvm管理一下嘛。安完可以命令行打 node -v 看版本信息</p><h3 id="3-2-安裝Hexo"><a href="#3-2-安裝Hexo" class="headerlink" title="3.2 安裝Hexo"></a>3.2 安裝Hexo</h3><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure><p>打hexo -v可以看安裝成功否</p><h3 id="3-3-Github-Page"><a href="#3-3-Github-Page" class="headerlink" title="3.3 Github Page"></a>3.3 Github Page</h3><ol><li>官網:<a href="https://github.com/">https://github.com</a>，自個去注册就行了</li><li>注册完了後，創建新倉庫(New repository)，创建一个叫<code>&lt;用戶名&gt;.github.io</code>的倉庫，注意一定要是”用戶名”+”github.io”，因為每個帳號只允許有一個github page。下面的隨意設置，然後點击創建。</li></ol><h3 id="3-4-安裝Git"><a href="#3-4-安裝Git" class="headerlink" title="3.4 安裝Git"></a>3.4 安裝Git</h3><ol><li><p>去官網<a href="https://git-scm.com/downloads">https://git-scm.com/downloads</a>下個最新的就好了，安裝就狂點下一步就好了，如果有想知道每個選項具體是在干嘛的探索精神，可以參考<a href="https://blog.csdn.net/mukes/article/details/115693833">Git 详细安装教程（详解 Git 安装过程的每一个步骤)</a>。</p></li><li><p>配置用戶名和郵箱</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name <span class="string">&quot;你的用戶名&quot;</span></span><br><span class="line">$ git config --global user.email <span class="string">&quot;你的郵箱&quot;</span></span><br></pre></td></tr></table></figure><p>想寫哪個都行，只是用來標識你的身份而已</p></li><li><p>在git bash上輸入git config -l可以檢查是否配置成功</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">$ git config -l</span><br><span class="line">diff.astextplain.textconv=astextplain</span><br><span class="line">filter.lfs.clean=git-lfs clean -- %f</span><br><span class="line">filter.lfs.smudge=git-lfs smudge -- %f</span><br><span class="line">filter.lfs.process=git-lfs filter-process</span><br><span class="line">filter.lfs.required=<span class="literal">true</span></span><br><span class="line">http.sslbackend=openssl</span><br><span class="line">http.sslcainfo=C:/Program Files/Git/mingw64/ssl/certs/ca-bundle.crt</span><br><span class="line">core.autocrlf=<span class="literal">true</span></span><br><span class="line">core.fscache=<span class="literal">true</span></span><br><span class="line">core.symlinks=<span class="literal">true</span></span><br><span class="line">pull.rebase=<span class="literal">false</span></span><br><span class="line">credential.helper=manager-core</span><br><span class="line">credential.https://dev.azure.com.usehttppath=<span class="literal">true</span></span><br><span class="line">init.defaultbranch=master</span><br><span class="line">user.email=a2064777923@gmail.com</span><br><span class="line">user.name=KingHong</span><br></pre></td></tr></table></figure></li></ol><h3 id="3-5-連接去Github"><a href="#3-5-連接去Github" class="headerlink" title="3.5 連接去Github"></a>3.5 連接去Github</h3><ol><li>執行以下命令生成ssh公匙，用於計算機連接Github<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C <span class="string">&quot;你的郵箱&quot;</span></span><br></pre></td></tr></table></figure></li><li>打開C:&#x2F;&#x2F;user&#x2F;#用戶名#&#x2F;.ssh，会發現多了几個文件，打開id_rsa.pub文件，复制里面的內容。</li><li>進入github配置頁，選擇<code>SSH and GPG keys</code>，填進去，确定。</li><li>測試連接，輸入:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -T git@github.com</span><br></pre></td></tr></table></figure><blockquote><p>如果連不上，出現<code>Could not resolve hostname github</code>的話，在cmd打ping <a href="http://www.github.com/">www.github.com</a> 也不行的話，可以嘗試修改本地 DNS 文件，打開C:\Windows\System32\drivers\etc 目录下的 hosts 文件，在最後添加<code>140.82.113.4    github.com</code>，然后保存，应該就能ping通了。</p></blockquote></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> -博客相關 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> -web前端 -hexo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Hello World</title>
       <link href="/2022/11/22/hello-world/"/>
       <url>/2022/11/22/hello-world/</url>
       
-        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
       
       
       
