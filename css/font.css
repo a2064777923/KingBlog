@@ -1,5 +1,5 @@
 <link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>@font-face {
   font-family: 'StopCool';
+   src: url('./fonts/StopCool.TTF) format("truetype");
   font-display: swap;
-  src: url('/fonts/StopCool.ttf) format("truetype");
 }

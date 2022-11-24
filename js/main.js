@@ -282,7 +282,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const isDown = scrollDirection(currentTop)
         if (currentTop > 56) {
           if (isDown) {
-            if ($header.classList.contains('nav-visible')) $header.classList.remove('nav-visible')
+            if ($header.classList.contains('nav-visible')) $header.classList.remove('nav-fixed', 'nav-visible')
             if (isChatBtnShow && isChatShow === true) {
               chatBtnHide()
               isChatShow = false
@@ -300,7 +300,7 @@ document.addEventListener('DOMContentLoaded', function () {
           }
         } else {
           if (currentTop === 0) {
-            $header.classList.remove('nav-fixed', 'nav-visible')
+            $header.classList.remove( 'nav-visible')
           }
           $rightside.style.cssText = "opacity: ''; transform: ''"
         }
