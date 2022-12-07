@@ -1372,7 +1372,7 @@ body {
   background: var(--global-bg);
   color: var(--font-color);
   font-size: var(--global-font-size);
-  font-family: StopCool, var(--global-font), 'Microsoft Yahei', Consolas_1, -apple-system, 'Quicksand', 'Nimbus Roman No9 L', 'PingFang SC', 'Hiragino Sans GB', 'Noto Serif SC', 'WenQuanYi Micro Hei', 'ST Heiti', sans-serif;;
+  font-family: StopCool,system-ui, var(--global-font), 'StopCool','Microsoft Yahei', Consolas_1, -apple-system, 'Quicksand', 'Nimbus Roman No9 L', 'PingFang SC', 'Hiragino Sans GB', 'Noto Serif SC', 'WenQuanYi Micro Hei', 'ST Heiti', sans-serif;;
   line-height: 2;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
@@ -1503,7 +1503,7 @@ a:hover {
 #site-name,
 #aside-content .author-info__name,
 #aside-content .author-info__description {
-  font-family: StopCool, 'Microsoft Yahei', var(--global-font);
+  font-family: system-ui,StopCool, var(--global-font),'StopCool','Microsoft Yahei';;
 }
 .is-center {
   text-align: center;

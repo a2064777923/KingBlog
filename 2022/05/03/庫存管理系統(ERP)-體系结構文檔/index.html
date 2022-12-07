@@ -1,0 +1,1356 @@
+<!DOCTYPE html><html lang="zh-TW" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>庫存管理系統(ERP)-體系结構文檔 | King's Backyard</title><meta name="author" content="HongZiXian"><meta name="copyright" content="HongZiXian"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="1. 引言1.1 编制目的    本报告详细完成对企业资源计划系统的概要设计，达到指导详细设计和开发的目的，同时实现和测试人员及用户的沟通。本报告面向开发人员、测试人员及最终用户而编写，是了解系统的导航。 1.2 词汇表表1 词汇表     词汇名称 词汇含义 备注     ERP 企业资源计划系统 无     1.3 参考资料用例文档需求规格说明 2. 产品概述    一民营企业专业从事灯具开关">
+<meta property="og:type" content="article">
+<meta property="og:title" content="庫存管理系統(ERP)-體系结構文檔">
+<meta property="og:url" content="https://www.hongzixian.cn/2022/05/03/%E5%BA%AB%E5%AD%98%E7%AE%A1%E7%90%86%E7%B3%BB%E7%B5%B1(ERP)-%E9%AB%94%E7%B3%BB%E7%BB%93%E6%A7%8B%E6%96%87%E6%AA%94/index.html">
+<meta property="og:site_name" content="King&#39;s Backyard">
+<meta property="og:description" content="1. 引言1.1 编制目的    本报告详细完成对企业资源计划系统的概要设计，达到指导详细设计和开发的目的，同时实现和测试人员及用户的沟通。本报告面向开发人员、测试人员及最终用户而编写，是了解系统的导航。 1.2 词汇表表1 词汇表     词汇名称 词汇含义 备注     ERP 企业资源计划系统 无     1.3 参考资料用例文档需求规格说明 2. 产品概述    一民营企业专业从事灯具开关">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://s2.loli.net/2022/12/07/z3CJbWMnAHYVOZ8.png">
+<meta property="article:published_time" content="2022-05-03T08:47:39.000Z">
+<meta property="article:modified_time" content="2022-06-14T15:12:05.000Z">
+<meta property="article:author" content="HongZiXian">
+<meta property="article:tag" content="項目">
+<meta property="article:tag" content="文檔">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2022/12/07/z3CJbWMnAHYVOZ8.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://www.hongzixian.cn/2022/05/03/%E5%BA%AB%E5%AD%98%E7%AE%A1%E7%90%86%E7%B3%BB%E7%B5%B1(ERP)-%E9%AB%94%E7%B3%BB%E7%BB%93%E6%A7%8B%E6%96%87%E6%AA%94/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="/css/font.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查詢的內容：${query}"}},
+  translate: {"defaultEncoding":1,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200},
+  copy: {
+    success: '複製成功',
+    error: '複製錯誤',
+    noSupport: '瀏覽器不支援'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '剛剛',
+    min: '分鐘前',
+    hour: '小時前',
+    day: '天前',
+    month: '個月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '庫存管理系統(ERP)-體系结構文檔',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-06-14 23:12:05'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/font.css"><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="/css/progress_bar.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-categories-card@1.0.0/lib/categorybar.css"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@1.0.17/lib/tag_plugins.css" media="defer" onload="this.media='all'"><script src="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-wowjs/lib/animate.min.css" media="print" onload="this.media='screen'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">載入中...</div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://s2.loli.net/2022/11/22/gqkpnz3Prte8RQU.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">18</div></a><a href="/tags/"><div class="headline">標籤</div><div class="length-num">19</div></a><a href="/categories/"><div class="headline">分類</div><div class="length-num">5</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首頁</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 文檔</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 標簽</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分類</span></a></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清單</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音樂</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 圖片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影片</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友鏈</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 關於</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://s2.loli.net/2022/12/07/lsa2Wy8AF6Co5vU.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">King's Backyard</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首頁</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 文檔</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 標簽</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分類</span></a></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清單</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音樂</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 圖片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影片</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友鏈</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 關於</span></a></div></div><div id="nav-right"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜尋</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">庫存管理系統(ERP)-體系结構文檔</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">發表於</span><time class="post-meta-date-created" datetime="2022-05-03T08:47:39.000Z" title="發表於 2022-05-03 16:47:39">2022-05-03</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新於</span><time class="post-meta-date-updated" datetime="2022-06-14T15:12:05.000Z" title="更新於 2022-06-14 23:12:05">2022-06-14</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%85%A9%E4%BA%BA%E4%BD%9C%E6%A5%AD/">煩人作業</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字數總計:</span><span class="word-count">4.8k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">閱讀時長:</span><span>16分鐘</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="庫存管理系統(ERP)-體系结構文檔"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">閱讀量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h3 id="1-引言"><a href="#1-引言" class="headerlink" title="1. 引言"></a>1. 引言</h3><h4 id="1-1-编制目的"><a href="#1-1-编制目的" class="headerlink" title="1.1 编制目的"></a>1.1 编制目的</h4><pre><code>    本报告详细完成对企业资源计划系统的概要设计，达到指导详细设计和开发的目的，同时实现和测试人员及用户的沟通。本报告面向开发人员、测试人员及最终用户而编写，是了解系统的导航。
+</code></pre><h4 id="1-2-词汇表"><a href="#1-2-词汇表" class="headerlink" title="1.2 词汇表"></a>1.2 词汇表</h4><p>表1 词汇表</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th><strong>词汇名称</strong></th>
+<th><strong>词汇含义</strong></th>
+<th><strong>备注</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ERP</td>
+<td>企业资源计划系统</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="1-3-参考资料"><a href="#1-3-参考资料" class="headerlink" title="1.3 参考资料"></a>1.3 参考资料</h4><p>用例文档<br>需求规格说明</p>
+<h3 id="2-产品概述"><a href="#2-产品概述" class="headerlink" title="2. 产品概述"></a>2. 产品概述</h3><pre><code>    一民营企业专业从事灯具开关行业，随着公司规模扩大，企业业务量、办公场所、员工数都发生增长，为适应新的环境，提高工作效率和用户满意度， 该公司需要该ERP系统辅助公司管理。该系统主要包括库存管理、销售管理、财务管理、人事管理和企业经营管理。 
+</code></pre><h3 id="3-逻辑视角"><a href="#3-逻辑视角" class="headerlink" title="3. 逻辑视角"></a>3. 逻辑视角</h3><pre><code>    企业资源计划系统中，选择了分层体系结构风格，将系统分为3层（展示层、业务逻辑层、数据层）能够很好地示意整个高层抽象。展示层包含GUI页面的实现，业务逻辑层包含业务逻辑处理的实现，数据层负责数据的持久化和访问。分层体系结构的逻辑视角和逻辑设计方案如图1和图2所示。
+</code></pre><p>图1 分层体系结构的逻辑视角<br><img src="https://s2.loli.net/2022/12/07/pLRcykCYXuV9dna.png" alt="逻辑视角.png"><br>图2 分层体系结构的逻辑设计方案<br><img src="https://s2.loli.net/2022/12/07/ls9AdSYGZ7CanMx.png" alt="分层体系结构逻辑设计方案.jpg"></p>
+<h3 id="4-组合视角"><a href="#4-组合视角" class="headerlink" title="4. 组合视角"></a>4. 组合视角</h3><h4 id="4-1-开发包图"><a href="#4-1-开发包图" class="headerlink" title="4.1 开发包图"></a>4.1 开发包图</h4><pre><code>    企业资源计划系统客户端开发包图如图3所示，服务器端开发包图如图4所示。
+</code></pre><p>图3 企业资源计划系统客户端开发包图<br><img src="https://s2.loli.net/2022/12/07/cPF1seQgbztHD6L.png" alt="客户端开发包图.jpg"><br>图4 企业资源计划系统服务器端开发包图<br><img src="https://s2.loli.net/2022/12/07/ZGginEIzLCmVr5O.png" alt="服务端开发包图.jpg"></p>
+<h4 id="4-2-运行时进程"><a href="#4-2-运行时进程" class="headerlink" title="4.2 运行时进程"></a>4.2 运行时进程</h4><pre><code>    在企业资源计划系统中，会有多个客户端进程和一个服务器进程，其进程图如图5所示。结合部署图，客户端进程是在客户端机器上运行，服务器端进程在服务器端机器上运行。
+</code></pre><p><img src="https://s2.loli.net/2022/12/07/cJ1zNbPlkyutDHi.png" alt="进程图.jpg"></p>
+<h4 id="4-3-物理部署"><a href="#4-3-物理部署" class="headerlink" title="4.3 物理部署"></a>4.3 物理部署</h4><pre><code>    企业资源计划系统中客户端构件是放在客户端机器上，服务器端构件是放在服务器端机器上,
+</code></pre><p>图5 部署图<br><img src="https://s2.loli.net/2022/12/07/5b6ZSxYXRVfF3Wc.png" alt="部署图.jpg"></p>
+<h3 id="5-接口视角"><a href="#5-接口视角" class="headerlink" title="5. 接口视角"></a>5. 接口视角</h3><h4 id="5-1-模块的职责"><a href="#5-1-模块的职责" class="headerlink" title="5.1 模块的职责"></a>5.1 模块的职责</h4><pre><code>    客户端模块和服务器端模块视图分别如图6和图7所示。客户端各层和服务器端各层的职责分别如表4和表5所示。
+</code></pre><p>图6 客户端模块视图<br><img src="https://s2.loli.net/2022/12/07/IFec8HW3KYCO9Ut.png" alt="客户端模块.png"><br>图7 服务端模块视图<br><img src="https://s2.loli.net/2022/12/07/KskVcmyg67NjI4r.png" alt="服务器端模块视图.jpg"><br>表4 客户端各层的职责</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th><strong>层</strong></th>
+<th><strong>职责</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>启动模块</td>
+<td>负责初始化网络通信机制，启动用户界面</td>
+</tr>
+<tr>
+<td>用户界面层</td>
+<td>基于窗口的连锁商店客户端用户界面</td>
+</tr>
+<tr>
+<td>客户端网络模块</td>
+<td>通过HTTP连接后端服务</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>表5 服务器端各层的职责</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th><strong>层</strong></th>
+<th><strong>职责</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>启动模块</td>
+<td>负责初始化网络通信机制，启动用户界面</td>
+</tr>
+<tr>
+<td>业务逻辑层</td>
+<td>对于用户界面的输入进行响应并进行业务处理逻辑</td>
+</tr>
+<tr>
+<td>数据层</td>
+<td>负责数据的持久化及数据访问接口</td>
+</tr>
+<tr>
+<td>服务器端网络模块</td>
+<td>通过HTTP连接前端页面</td>
+</tr>
+</tbody>
+</table>
+</div>
+<pre><code>    每一层只是使用下方直接接触的层。层与层之间仅仅是通过接口的调用来完成的。层之间调用的接口如表6所示。
+</code></pre><p>表6 层之间调用的接口</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>接口</th>
+<th>服务调用方</th>
+<th>服务提供方</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>network.commodity，network.auth,</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>network.product,<br>network.purchase,<br>network.sale,<br>network.warehouse | 前端views | 后端Controller |<br>| service.CatogoryService<br>service.CustomerService<br>service.ProductService<br>service.PurchaseyService<br>service.SaleService<br>service.SaleReturnService<br>service.UserService<br>service.WarehouseService | 后端controller | 后端serviceImpl |<br>| dao.CategoryDao<br>dao.CustomerDao<br>dao.DiscountDao<br>dao.HumanResourceDao<br>dao.ProductDao<br>dao.PurchaseSheetDao<br>dao.PurchaseReturnsSheetDao<br>dao.SaleSheetDao<br>dao.SaleReturnsSheetDao<br>dao.UserDao<br>dao.WarehouseDao<br>dao.WarehouseInputSheetDao<br>dao.WarehouseOutputSheetDao | 后端serviceImpl | mybatis |</p>
+<h3 id="5-2各层面的分解"><a href="#5-2各层面的分解" class="headerlink" title="5.2各层面的分解"></a>5.2各层面的分解</h3><h4 id="5-2-用户界面层的分解"><a href="#5-2-用户界面层的分解" class="headerlink" title="5.2 用户界面层的分解"></a>5.2 用户界面层的分解</h4><pre><code>    根据要求，系统存在18个用户界面：登录界面、总经理主界面、库存管理员主界面、入库界面、出库界面、库存分析界面、销售员主界面、进货界面、销售界面、退货界面、财务人员主界面、单据管理界面、销售明细界面、人力资源界面、赠品管理界面、数据同步界面、调整产品界面、调整用户界面。界面跳转如图8所示。
+</code></pre><p>图8 用户界面跳转<br><img src="https://s2.loli.net/2022/12/07/HqY9AeyOV6oPuxn.png" alt="用户界面跳转.jpg"><br>    服务器端和客户端的用户界面设计接口是一致的，只是具体的页面不一样。用户界面类如表7所示。</p>
+<h5 id="5-2-1界面模块职责与需接口"><a href="#5-2-1界面模块职责与需接口" class="headerlink" title="5.2.1界面模块职责与需接口"></a>5.2.1界面模块职责与需接口</h5><p>表7 用户界面类</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th><strong>类名</strong></th>
+<th><strong>职责</strong></th>
+<th><strong>需接口</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>auth.login</td>
+<td>用于获取用户的賬号、密碼、登录状态和对应角色</td>
+<td>network.auth</td>
+</tr>
+<tr>
+<td>auth.register</td>
+<td>用于注册新的用户</td>
+<td>network.auth</td>
+</tr>
+<tr>
+<td>humanResource.staffManagement</td>
+<td>用于总经理和人力资源管理帳号在調整用戶界面时向数据庫插入新创建的用戶的接口</td>
+<td>network.humanResource</td>
+</tr>
+<tr>
+<td>humanResource.checkIn</td>
+<td>用于员工的打卡</td>
+<td>network.humanResource</td>
+</tr>
+<tr>
+<td>humanResource.staffCheck</td>
+<td>用于人力资源人员查询所有员工的打卡情况</td>
+<td>network.humanResource</td>
+</tr>
+<tr>
+<td>humanResource.SalaryStrategy</td>
+<td>用于人力资源人员制定并获取工资单</td>
+<td>network.humanResource</td>
+</tr>
+<tr>
+<td>commodity.CommodityClassification</td>
+<td>用于实现商品分类管理</td>
+<td>network.commodity</td>
+</tr>
+<tr>
+<td>commodity.CommodityManagement</td>
+<td>用于管理商品并获取、控制数据库中的商品信息</td>
+<td>network.commodity</td>
+</tr>
+<tr>
+<td>discount.MakeDiscount</td>
+<td>用于总经理制定销售策略</td>
+<td>network.discount</td>
+</tr>
+<tr>
+<td>approval.Approval</td>
+<td>用于总经理审批单据</td>
+<td>network.approval</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h5 id="5-2-2-用户界面模块设计原理"><a href="#5-2-2-用户界面模块设计原理" class="headerlink" title="5.2.2 用户界面模块设计原理"></a>5.2.2 用户界面模块设计原理</h5><pre><code>使用vue框架实现
+</code></pre><h4 id="5-3-业务逻辑层的分解"><a href="#5-3-业务逻辑层的分解" class="headerlink" title="5.3 业务逻辑层的分解"></a>5.3 业务逻辑层的分解</h4><pre><code>    业务逻辑层包括多个针对界面的业务逻辑处理对象。例如，User对象负责处理登录界面的业务逻辑；Sales对象负责处理销售界面的业务逻辑。
+</code></pre><h5 id="5-3-1业务层模块的职责"><a href="#5-3-1业务层模块的职责" class="headerlink" title="5.3.1业务层模块的职责"></a>5.3.1业务层模块的职责</h5><pre><code>    业务逻辑层模块的职责如表11所示。
+</code></pre><p>表11 业务逻辑层模块的职责</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th><strong>模块</strong></th>
+<th><strong>职责</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BankServiceImpl</td>
+<td>负责银行账户相关服务</td>
+</tr>
+<tr>
+<td>CategoryServiceImpl</td>
+<td>负责商品分类</td>
+</tr>
+<tr>
+<td>CustomerServiceImpl</td>
+<td>负责客户服务</td>
+</tr>
+<tr>
+<td>DiscountServiceImpl</td>
+<td>负责折扣策略相关服务</td>
+</tr>
+<tr>
+<td>HumanresourceServiceImpl</td>
+<td>负责人力资源相关服务</td>
+</tr>
+<tr>
+<td>PaymentServiceImpl</td>
+<td>负责付款服务</td>
+</tr>
+<tr>
+<td>ProductServiceImpl</td>
+<td>负责商品管理服务</td>
+</tr>
+<tr>
+<td>PurchaseReturnsServiceImpl</td>
+<td>负责进货退货服务</td>
+</tr>
+<tr>
+<td>PurchaseServiceImpl</td>
+<td>负责进货服务</td>
+</tr>
+<tr>
+<td>SalaryServiceImpl</td>
+<td>负责工资管理相关服务</td>
+</tr>
+<tr>
+<td>SaleReturnsServiceImpl</td>
+<td>负责销售退货服务</td>
+</tr>
+<tr>
+<td>SaleServiceImpl</td>
+<td>负责销售服务</td>
+</tr>
+<tr>
+<td>SearchSheetServiceImpl</td>
+<td>负责查看表单服务</td>
+</tr>
+<tr>
+<td>UserServiceImpl</td>
+<td>用户管理服务</td>
+</tr>
+<tr>
+<td>WarehouseServiceImpl</td>
+<td>库存管理服务</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h5 id="5-3-2-业务逻辑层模块的接口规范与需接口"><a href="#5-3-2-业务逻辑层模块的接口规范与需接口" class="headerlink" title="5.3.2 业务逻辑层模块的接口规范与需接口"></a>5.3.2 业务逻辑层模块的接口规范与需接口</h5><pre><code>    DiscountImpl、HumanresourceImpl和SearchSheetImpl模块的接口规范分别如下表所示。
+</code></pre><p>表12 DiscountImpl模块的接口规范<br>提供的服务（供接口）</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>DiscountServiceImpl.setDiscount</th>
+<th>语法</th>
+<th>public void setDiscount(DiscountVO discountVO)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>前置条件</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>后置条件</td>
+<td>存储销售策略并能够在销售时使用</td>
+</tr>
+<tr>
+<td>DiscountServiceImpl.deleteDiscount</td>
+<td>语法</td>
+<td>public void deleteDiscount(Integer id)</td>
+</tr>
+<tr>
+<td></td>
+<td>前置条件</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>后置条件</td>
+<td>删除促销策略</td>
+</tr>
+<tr>
+<td>DiscountServiceImpl.findAll</td>
+<td>语法</td>
+<td>public List<DiscountVO> findAll()</td>
+</tr>
+<tr>
+<td></td>
+<td>前置条件</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>后置条件</td>
+<td>查找并显示所有促销策略</td>
+</tr>
+<tr>
+<td>DiscountServiceImpl.chooseDiscount</td>
+<td>语法</td>
+<td>public List<BigDecimal> chooseDiscount(Integer level, List<SaleSheetContentPO> saleContent, BigDecimal totalAmount)</td>
+</tr>
+<tr>
+<td></td>
+<td>前置条件</td>
+<td>已经创建一个销售单</td>
+</tr>
+<tr>
+<td></td>
+<td>后置条件</td>
+<td>给出已有促销策略中折扣最大的促销策略</td>
+</tr>
+<tr>
+<td>DiscountStrategy1.makeDiscount</td>
+<td>语法</td>
+<td>public void makeDiscount(DiscountPO discountPO)</td>
+</tr>
+<tr>
+<td></td>
+<td>前置条件</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>后置条件</td>
+<td>能够在存储中获取以级别划分的促销策略</td>
+</tr>
+<tr>
+<td>DiscountStrategy2.makeDiscount</td>
+<td>语法</td>
+<td>public void makeDiscount(DiscountPO discountPO)</td>
+</tr>
+<tr>
+<td></td>
+<td>前置条件</td>
+<td>创建过组合包</td>
+</tr>
+<tr>
+<td></td>
+<td>后置条件</td>
+<td>能够在存储中获取以组合包划分的促销策略</td>
+</tr>
+<tr>
+<td>DiscountStrategy2.setBagContent</td>
+<td>语法</td>
+<td>void setBagContent(List<BagVO> list)</td>
+</tr>
+<tr>
+<td></td>
+<td>前置条件</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>后置条件</td>
+<td>能够在指定促销策略时获取组合包</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>需要的服务（需接口）</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th><strong>服务名</strong></th>
+<th><strong>服务</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DiscountDao.getLatest()</td>
+<td>获取最近的促销策略</td>
+</tr>
+<tr>
+<td>DiscountDao.createDiscount(DiscountPO discountPO)</td>
+<td>创建促销策略</td>
+</tr>
+<tr>
+<td>DiscountDao.deleteDiscount(Integer id)</td>
+<td>删除指定促销策略</td>
+</tr>
+<tr>
+<td>DiscountDao.getAll()</td>
+<td>获取所有促销策略信息</td>
+</tr>
+<tr>
+<td>DiscountDao.getByLevel(Integer level)</td>
+<td>获取指定等级的折扣情况</td>
+</tr>
+<tr>
+<td>DiscountDao.getLessL(Integer level)</td>
+<td>获取低于指定级别的折扣情况</td>
+</tr>
+<tr>
+<td>DiscountDao.getLargerL(Integer level)</td>
+<td>获取高于指定级别的折扣情况</td>
+</tr>
+<tr>
+<td>DiscountDao.updateByLevel(DiscountPO discountPO)</td>
+<td>按级别更新</td>
+</tr>
+<tr>
+<td>DiscountDao.getBagId()</td>
+<td>获取所有组合包id</td>
+</tr>
+<tr>
+<td>DiscountDao.getBagInfo(Integer id)</td>
+<td>获取指定id下的组合包信息</td>
+</tr>
+<tr>
+<td>DiscountDao.updateById(DiscountPO discountPO)</td>
+<td>按id更新</td>
+</tr>
+<tr>
+<td>DiscountDao.addBagContent(Integer id, String pid)</td>
+<td>添加组合包内容</td>
+</tr>
+<tr>
+<td>DiscountDao.getById(Integer id)</td>
+<td>获取指定id的促销策略情况</td>
+</tr>
+<tr>
+<td>DiscountDao.getByAmount(BigDemical amount)</td>
+<td>获取某一价位的折扣情况</td>
+</tr>
+<tr>
+<td>DiscountDao.getLessA(BigDemical amount)</td>
+<td>获取低于指定价位的折扣情况</td>
+</tr>
+<tr>
+<td>DiscountDao.getLargerA(BigDemical amount)</td>
+<td>获取高于指定价位的折扣情况</td>
+</tr>
+<tr>
+<td>DiscountDao.getMax(BigDemical amount)</td>
+<td>获取最大折扣</td>
+</tr>
+<tr>
+<td>DiscountDao.updateByAmount(DiscountPO discountPO)</td>
+<td>按价位更新</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>表13 HumanresourceImpl模块的接口规范</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>提供的服务（供接口）</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HumanresourceServiceImpl.createCheck</td>
+<td>语法</td>
+<td>public void createCheck(CheckVO checkVO)</td>
+</tr>
+<tr>
+<td></td>
+<td>前置条件</td>
+<td>员工进入系统</td>
+</tr>
+<tr>
+<td></td>
+<td>后置条件</td>
+<td>人力资源人员可以查看打卡信息</td>
+</tr>
+<tr>
+<td>HumanresourceServiceImpl.showDateChecks</td>
+<td>语法</td>
+<td>public List<CheckPO> showDateChecks(String checktime)</td>
+</tr>
+<tr>
+<td></td>
+<td>前置条件</td>
+<td>存在员工</td>
+</tr>
+<tr>
+<td></td>
+<td>后置条件</td>
+<td>人力资源人员可以查看打卡天数</td>
+</tr>
+<tr>
+<td>HumanresourceServiceImpl.showDateUncheck</td>
+<td>语法</td>
+<td>public List<UncheckPO> showDateUncheck(String checktime)</td>
+</tr>
+<tr>
+<td></td>
+<td>前置条件</td>
+<td>存在员工</td>
+</tr>
+<tr>
+<td></td>
+<td>后置条件</td>
+<td>人力资源人员可以查看未打卡天数</td>
+</tr>
+<tr>
+<td>HumanresourceServiceImpl.showDateRangeCheck</td>
+<td>语法</td>
+<td>public List<DateRangeCheckPO> showDateRangeCheck(String beginDate,String endDate)</td>
+</tr>
+<tr>
+<td></td>
+<td>前置条件</td>
+<td>存在员工</td>
+</tr>
+<tr>
+<td></td>
+<td>后置条件</td>
+<td>人力资源人员可以查看指定时间段内的打卡情况</td>
+</tr>
+<tr>
+<td>HumanresourceServiceImpl.createWorker</td>
+<td>语法</td>
+<td>public void createWorker(WorkerVO workerVO)</td>
+</tr>
+<tr>
+<td></td>
+<td>前置条件</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>后置条件</td>
+<td>数据库中需要存储有新的员工信息</td>
+</tr>
+<tr>
+<td>HumanresourceServiceImpl.getAllWorkers</td>
+<td>语法</td>
+<td>public List<WorkerPO> getAllWorkers()</td>
+</tr>
+<tr>
+<td></td>
+<td>前置条件</td>
+<td>存在员工</td>
+</tr>
+<tr>
+<td></td>
+<td>后置条件</td>
+<td>人力资源人员可以查看所有员工信息</td>
+</tr>
+<tr>
+<td>HumanresourceServiceImpl.createPostInformance</td>
+<td>语法</td>
+<td>public void createPostInformance(PostInformanceVO postInformanceVO)</td>
+</tr>
+<tr>
+<td></td>
+<td>前置条件</td>
+<td>存在员工</td>
+</tr>
+<tr>
+<td></td>
+<td>后置条件</td>
+<td>创建后可以被查看到岗位信息</td>
+</tr>
+<tr>
+<td>HumanresourceServiceImpl.getAllPosts</td>
+<td>语法</td>
+<td>public List<PostInformancePO> getAllPosts()</td>
+</tr>
+<tr>
+<td></td>
+<td>前置条件</td>
+<td>已经创建过岗位信息</td>
+</tr>
+<tr>
+<td></td>
+<td>后置条件</td>
+<td>人力资源人员可以查看所有岗位信息</td>
+</tr>
+<tr>
+<td>HumanresourceServiceImpl.createSalaryList</td>
+<td>语法</td>
+<td>public void createSalaryList(SalaryListVO salaryListVO)</td>
+</tr>
+<tr>
+<td></td>
+<td>前置条件</td>
+<td>存在员工</td>
+</tr>
+<tr>
+<td></td>
+<td>后置条件</td>
+<td>创建后可以被查看到工资表</td>
+</tr>
+<tr>
+<td>HumanresourceServiceImpl.getSalaryList</td>
+<td>语法</td>
+<td>public SalaryListVO getSalaryList(String name,String role)</td>
+</tr>
+<tr>
+<td></td>
+<td>前置条件</td>
+<td>已经创建过工资表</td>
+</tr>
+<tr>
+<td></td>
+<td>后置条件</td>
+<td>人力资源人员可以查看工资表信息</td>
+</tr>
+<tr>
+<td>HumanresourceServiceImpl.getSalaryStrategy</td>
+<td>语法</td>
+<td>public List<SalaryStrategyVO> getSalaryStrategy(String role)</td>
+</tr>
+<tr>
+<td></td>
+<td>前置条件</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>后置条件</td>
+<td>人力资源人员可以查看到薪资策略</td>
+</tr>
+<tr>
+<td>需要的服务（需接口）</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>服务名</td>
+<td>服务</td>
+<td></td>
+</tr>
+<tr>
+<td>HumanresourceDao.createCheck(CheckVO checkVO)</td>
+<td>创建新的打卡</td>
+<td></td>
+</tr>
+<tr>
+<td>HumanresourceDao.showDateChecks(String checktime)</td>
+<td>显示某一天的打卡信息</td>
+<td></td>
+</tr>
+<tr>
+<td>HumanresourceDao.showDateUncheck(String checktime)</td>
+<td>显示某一天的未打卡信息</td>
+<td></td>
+</tr>
+<tr>
+<td>HumanresourceDao.showDateRangeCheck(String beginDate, String endDate)</td>
+<td>显示某个时间段内的打卡信息</td>
+<td></td>
+</tr>
+<tr>
+<td>HumanresourceDao.createWorker(WorkerVO workerVO)</td>
+<td>创建员工</td>
+<td></td>
+</tr>
+<tr>
+<td>HumanresourceDao.getAllWorkers()</td>
+<td>获取所有员工信息</td>
+<td></td>
+</tr>
+<tr>
+<td>HumanresourceDao.createPostInformance(PostInformanceVO postInformanceVO)</td>
+<td>创建岗位信息</td>
+<td></td>
+</tr>
+<tr>
+<td>HumanresourceDao.getAllPosts()</td>
+<td>获取所有岗位信息</td>
+<td></td>
+</tr>
+<tr>
+<td>HumanresourceDao.createSalaryList(SalaryListVO salaryListVO)</td>
+<td>创建薪资表</td>
+<td></td>
+</tr>
+<tr>
+<td>HumanresourceDao.getSalaryList(String name, String role)</td>
+<td>获取薪资表</td>
+<td></td>
+</tr>
+<tr>
+<td>HumanresourceDao.createSalaryStrategy(SalaryStrategyVO salaryStrategyVO)</td>
+<td>创建薪资计算方式</td>
+<td></td>
+</tr>
+<tr>
+<td>HumanresourceDao.getSalaryStrategy(String role)</td>
+<td>获取某一职位的薪资计算方式</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>表14 SearchSheetImpl模块的接口规范</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>提供的服务（供接口）</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SearchSheetServiceImpl.getAllSalesmen</td>
+<td>语法</td>
+<td>public List<UserVO> getAllSalesmen()</td>
+</tr>
+<tr>
+<td></td>
+<td>前置条件</td>
+<td>存在销售员</td>
+</tr>
+<tr>
+<td></td>
+<td>后置条件</td>
+<td>可以查看所有销售员信息</td>
+</tr>
+<tr>
+<td>SearchSheetServiceImpl.getSalesDetails</td>
+<td>语法</td>
+<td>public List<SalesDetailVO> getSalesDetails(SalesSearchVO salesSearchVO)</td>
+</tr>
+<tr>
+<td></td>
+<td>前置条件</td>
+<td>存在销售单</td>
+</tr>
+<tr>
+<td></td>
+<td>后置条件</td>
+<td>可以查看销售单的详细信息</td>
+</tr>
+<tr>
+<td>SearchSheetServiceImpl.getSalesSheetReturn</td>
+<td>语法</td>
+<td>public List<SaleReturnsSheetVO> getSalesSheetReturn(SalesSearchVO salesSearchVO)</td>
+</tr>
+<tr>
+<td></td>
+<td>前置条件</td>
+<td>存在销售退货单</td>
+</tr>
+<tr>
+<td></td>
+<td>后置条件</td>
+<td>可以查看销售退货单的详细信息</td>
+</tr>
+<tr>
+<td>SearchSheetServiceImpl.getPurchaseSheet</td>
+<td>语法</td>
+<td>public List<PurchaseSheetVO> getPurchaseSheet(SearchSheetVO searchSheetVO)</td>
+</tr>
+<tr>
+<td></td>
+<td>前置条件</td>
+<td>存在进货单</td>
+</tr>
+<tr>
+<td></td>
+<td>后置条件</td>
+<td>可以查看进货单的详细信息</td>
+</tr>
+<tr>
+<td>SearchSheetServiceImpl.getPurchaseSheetReturn</td>
+<td>语法</td>
+<td>public List<PurchaseReturnsSheetVO> getPurchaseSheetReturn(SearchSheetVO searchSheetVO)</td>
+</tr>
+<tr>
+<td></td>
+<td>前置条件</td>
+<td>存在进货退货单</td>
+</tr>
+<tr>
+<td></td>
+<td>后置条件</td>
+<td>可以查看进货退货单的详细信息</td>
+</tr>
+<tr>
+<td>需要的服务（需接口）</td>
+<td>服务</td>
+<td></td>
+</tr>
+<tr>
+<td>CollectionSheetDao.getLatest()</td>
+<td>获取最新表</td>
+<td></td>
+</tr>
+<tr>
+<td>CollectionSheetDao.save(CollectionSheetPO tosave)</td>
+<td>保存表</td>
+<td></td>
+</tr>
+<tr>
+<td>CollectionSheetDao.saveBatch(List<CollectionSheetContentPO> collectionSheetContent)</td>
+<td>保存一个批次的表</td>
+<td></td>
+</tr>
+<tr>
+<td>CollectionSheetDao.findAll()</td>
+<td>查找所有表</td>
+<td></td>
+</tr>
+<tr>
+<td>CollectionSheetDao.findAllByState(PaymentSheetState state)</td>
+<td>根据状态查找表</td>
+<td></td>
+</tr>
+<tr>
+<td>CollectionSheetDao.findContentByCollectionSheetId(String collectionSheetId)</td>
+<td>根据id查找表的内容</td>
+<td></td>
+</tr>
+<tr>
+<td>CollectionSheetDao.findOneById(String collectionSheetId)</td>
+<td>根据id查找到对应的表</td>
+<td></td>
+</tr>
+<tr>
+<td>CollectionSheetDao.updateState(String collectionSheetId, PaymentSheetState state)</td>
+<td>更新表的状态</td>
+<td></td>
+</tr>
+<tr>
+<td>SearchSheetDao.getAllSalesmen()</td>
+<td>获取所有销售员信息</td>
+<td></td>
+</tr>
+<tr>
+<td>SearchSheetDao.getSalesDetails(Date beginTime, Date endTime, @Param(“productName”)List<String> productName, @Param(“customer”) List<String> customer, @Param(“salesman”)List<String> salesmen)</td>
+<td>获取销售的详细信息</td>
+<td></td>
+</tr>
+<tr>
+<td>SearchSheetDao.getPurchaseSheet(Date beginTime, Date endTime, @Param(“customer”) List<String> customer)</td>
+<td>获取进货表</td>
+<td></td>
+</tr>
+<tr>
+<td>SearchSheetDao.getPurchaseSheetReturn(Date beginTime, Date endTime)</td>
+<td>获取进货退货表</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="5-4-数据层的分解"><a href="#5-4-数据层的分解" class="headerlink" title="5.4 数据层的分解"></a>5.4 数据层的分解</h4><pre><code>    数据层主要给业务逻辑层提供数据访问服务，包括对于持久化数据的增、删、改、查。Sales业务逻辑需要的服务由SalesDataService接口提供。持久化数据的保存可能存在多种形式：Txt文件、序列化文件、数据库等
+</code></pre><h5 id="5-4-1-数据层模块的职责"><a href="#5-4-1-数据层模块的职责" class="headerlink" title="5.4.1 数据层模块的职责"></a>5.4.1 数据层模块的职责</h5><pre><code>    数据层模块的职责如表15所示。
+</code></pre><p>表15 销售模块数据层模块的职责</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th><strong>模块</strong></th>
+<th><strong>职责</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BankDao</td>
+<td>管理账户数据</td>
+</tr>
+<tr>
+<td>CategoryDao</td>
+<td>管理商品分类</td>
+</tr>
+<tr>
+<td>CollectionSheetDao</td>
+<td>管理整体表单类数据</td>
+</tr>
+<tr>
+<td>CustomerDao</td>
+<td>管理客户数据</td>
+</tr>
+<tr>
+<td>DiscountDao</td>
+<td>管理折扣数据</td>
+</tr>
+<tr>
+<td>HumanresourceDao</td>
+<td>管理人力资源数据</td>
+</tr>
+<tr>
+<td>PaymentSheetDao</td>
+<td>管理付款单数据</td>
+</tr>
+<tr>
+<td>ProductDao</td>
+<td>管理商品数据</td>
+</tr>
+<tr>
+<td>PurchaseReturnsSheetDao</td>
+<td>管理进货退货数据</td>
+</tr>
+<tr>
+<td>PurchaseSheetDao</td>
+<td>管理进货数据</td>
+</tr>
+<tr>
+<td>SalarySheetDao</td>
+<td>管理工资单数据</td>
+</tr>
+<tr>
+<td>SaleReturnsSheetDao</td>
+<td>管理销售退货数据</td>
+</tr>
+<tr>
+<td>SaleSheetDao</td>
+<td>管理销售数据</td>
+</tr>
+<tr>
+<td>UserDao</td>
+<td>管理用户数据</td>
+</tr>
+<tr>
+<td>WarehouseDao</td>
+<td>管理库存数据</td>
+</tr>
+<tr>
+<td>WarehouseInputSheetDao</td>
+<td>管理入库数据</td>
+</tr>
+<tr>
+<td>WarehouseOutputSheetDao</td>
+<td>管理出库数据</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h5 id="5-4-2-数据层模块的接口规范"><a href="#5-4-2-数据层模块的接口规范" class="headerlink" title="5.4.2 数据层模块的接口规范"></a>5.4.2 数据层模块的接口规范</h5><pre><code>    数据层模块的接口的增删查改职责较为类似，以销售单接口规范为例如表16所示。
+</code></pre><p>表16 销售模块数据层模块的接口规范 </p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>提供的服务（供接口）</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SaleSheetDao.getLatestSheet</td>
+<td>语法</td>
+<td>SaleSheetPO getLatestSheet()</td>
+</tr>
+<tr>
+<td></td>
+<td>前置条件</td>
+<td>无</td>
+</tr>
+<tr>
+<td></td>
+<td>后置条件</td>
+<td><em>获取最近一条销售单</em></td>
+</tr>
+<tr>
+<td>SaleSheetDao.saveSheet</td>
+<td>语法</td>
+<td>int saveSheet(SaleSheetPO toSave)</td>
+</tr>
+<tr>
+<td></td>
+<td>前置条件</td>
+<td>同样ID的po在Mapper中不存在</td>
+</tr>
+<tr>
+<td></td>
+<td>后置条件</td>
+<td><em>存入一条销售单记录</em></td>
+</tr>
+<tr>
+<td>SaleSheetDao.saveBatchSheetContent</td>
+<td>语法</td>
+<td>int saveBatchSheetContent(List<SaleSheetContentPO> saleSheetContent);</td>
+</tr>
+<tr>
+<td></td>
+<td>前置条件</td>
+<td>在数据库中不存在同样ID</td>
+</tr>
+<tr>
+<td></td>
+<td>后置条件</td>
+<td><em>把销售单上的具体内容存入数据库</em></td>
+</tr>
+<tr>
+<td>SSaleSheetDao.findAllSheet</td>
+<td>语法</td>
+<td>List<SaleSheetPO> findAllSheet()</td>
+</tr>
+<tr>
+<td></td>
+<td>前置条件</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>后置条件</td>
+<td><em>查找所有销售单</em></td>
+</tr>
+<tr>
+<td>SaleSheetDao.findAllByState</td>
+<td>语法</td>
+<td>List<SaleSheetPO> findAllByState(SaleSheetState state);</td>
+</tr>
+<tr>
+<td></td>
+<td>前置条件</td>
+<td>无</td>
+</tr>
+<tr>
+<td></td>
+<td>后置条件</td>
+<td><em>根据狀態找銷售货單</em></td>
+</tr>
+<tr>
+<td>SaleSheetDao.findSheetById</td>
+<td>语法</td>
+<td>SaleSheetPO findSheetById(String id);</td>
+</tr>
+<tr>
+<td></td>
+<td>前置条件</td>
+<td>无</td>
+</tr>
+<tr>
+<td></td>
+<td>后置条件</td>
+<td><em>查找指定id的销售单</em></td>
+</tr>
+<tr>
+<td>SaleSheetDao.findContentBySheetId</td>
+<td>语法</td>
+<td>List<SaleSheetContentPO> findContentBySheetId(String sheetId);</td>
+</tr>
+<tr>
+<td></td>
+<td>前置条件</td>
+<td>无</td>
+</tr>
+<tr>
+<td></td>
+<td>后置条件</td>
+<td><em>查找指定销售单下具体的商品内容</em></td>
+</tr>
+<tr>
+<td>SaleSheetDao.updateSheetState</td>
+<td>语法</td>
+<td>int updateSheetState(String sheetId, SaleSheetState state);</td>
+</tr>
+<tr>
+<td></td>
+<td>前置条件</td>
+<td>无</td>
+</tr>
+<tr>
+<td></td>
+<td>后置条件</td>
+<td><em>更新指定销售单的状态</em></td>
+</tr>
+<tr>
+<td>SaleSheetDao.updateSheetStateOnPrev</td>
+<td>语法</td>
+<td>int updateSheetStateOnPrev(String sheetId, SaleSheetState prev, SaleSheetState state);</td>
+</tr>
+<tr>
+<td></td>
+<td>前置条件</td>
+<td>无</td>
+</tr>
+<tr>
+<td></td>
+<td>后置条件</td>
+<td><em>根据当前状态更新销售单状态</em></td>
+</tr>
+<tr>
+<td>SaleSheetDao.getMaxAmountCustomerOfSalesmanByTime</td>
+<td>语法</td>
+<td>CustomerPurchaseAmountPO getMaxAmountCustomerOfSalesmanByTime(String salesman, Date beginTime,Date endTime);</td>
+</tr>
+<tr>
+<td></td>
+<td>前置条件</td>
+<td>无</td>
+</tr>
+<tr>
+<td></td>
+<td>后置条件</td>
+<td><em>获取某个销售人员某段时间内消费总金额最大的客户(不考虑退货情况,销售单不需要审批通过,如果这样的客户有多个，仅保留一个</em></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>表17 库存模块数据层模块的接口规范</p>
+<h3 id="6-信息视角"><a href="#6-信息视角" class="headerlink" title="6. 信息视角"></a>6. 信息视角</h3><h4 id="6-1-数据持久化对象"><a href="#6-1-数据持久化对象" class="headerlink" title="6.1 数据持久化对象"></a>6.1 数据持久化对象</h4><p>BankPO:包含账户的编号、名称、账户号、金额<br>CategoryPO：包含商品分类的编号，分类名，父分类ID，是否为叶节点，商品数量，下一商品index<br>CheckPO:包含打卡信息，有员工姓名，员工职位，签到时间，<br>CollectionSheetContentPO：包含收款表的自增ID、收款单ID、银行账户、金额、备注<br>CollectionSheetPO：包含进货单单据编号，供应商ID，操作员，备注，总额合计、单据状态、创建时间<br>CustomerPO：包含客户编号、级别、分类、姓名、号码、地址、邮编、邮箱、应收应付、默认业务员<br>CustomerPurchaseAmountPO：包含客户付款数据的客户、总金额<br>DateRangeCheckPO：签到数据，包含员工姓名、员工职位、签到次数<br>DiscountPO：折扣数据，包含编号、策略类型、客户级别、总价、折扣、代金券总额、创建时间<br>PaymentSheetContentPO：付款单内容，包含自增ID，id，银行账户，金额，备注<br>PaymentSheetPO：付款单，单据编号、供应商id，操作员，备注，总额，单据状态，创建时间<br>PostInformancePO：工资信息，包含姓名、基本工资、岗位工资、职位、薪资计算方法、薪资发放方式、税收<br>ProductPO：商品数据，包含商品id，商品名，分类ID，商品型号，商品数量，进价，零售价，最近进价，最近零售价<br>PurchaseReturnsSheetContentPO：进货退货内容，包含自增id，单据id，商品id，数量，单价，总金额，备注<br>PurchaseReturnsSheetPO：进货退货单据，包含单据号，关联进货单、操作员、备注、总额、状态、创建时间<br>PurchaseSheetContentPO：进货单内容，包含包含自增id，单据id，商品id，数量，单价，总金额，备注<br>PurchaseSheetPO：进货单据，包含单据号、操作员、备注、总额、状态、创建时间<br>SalaryListPO：工资单，包含姓名、基本工资、岗位工资、职位、薪资计算方法、薪资发放方式、税收<br>SalarySheetContentPO：工资单内容，包含自增id，单据id，姓名，税前工资，个税，保险，公积金，实发工资、银行账户、备注<br>SalarySheetPO：工资单，包含单据号，操作员，备注，总额，单据状态，创建时间<br>SalaryStrategyPO：工资发放策略，包含职位，基本工资，岗位工资，回扣，回扣比率<br>SaleReturnsSheetContentPO：销售退货单内容，包含自增id,单据id，商品id，数量，单价，总额，备注<br>SaleReturnsSheetPO：销售退货单，包含单据编号，关联销售单，操作员，备注，折让，代金券总额，单据状态，创建时间<br>SaleSheetContentPO：销售单内容，包含自增id,单据id，商品id，数量，单价，总额，备注<br>SaleSheetPO：销售单，包含单据编号，操作员，备注，折让，代金券总额，单据状态，创建时间<br>Staff：员工，包含姓名，性别，生日，电话，职位，级别，工资卡<br>StaffWagelnfoPO：员工工资，包含id,姓名，工资，银行<br>UncheckPO：未签到人员，包含姓名，职位<br>User：用户，包含ID，姓名，密码，身份<br>WarehouselnputSheetContentPO：入库单内容，包含列表id，单据编号，商品id，商品数量，单价，出厂日期，备注<br>WarehouselnputSheetPO：入库单，包含单据编号，批次，操作员，操作时间，关联进货单据，单据状态<br>WarehouselODetailPO：出入库细节，包含操作类型，单据id，商品名，分类名，商品数量，单价，总价，创建时间<br>WarehouseOutputSheetContentPO：出库单内容，包含列表id，单据编号，商品id，商品数量，单价，出厂日期，备注<br>WarehouseOutputSheetPO：出库单，包含单据编号，批次，操作员，操作时间，关联进货单据，单据状态<br>WarehousePO：库存数据，包含id，商品编号，数量，进价，批次，出厂日期</p>
+<h4 id="6-2-Excel持久化格式"><a href="#6-2-Excel持久化格式" class="headerlink" title="6.2 Excel持久化格式"></a>6.2 Excel持久化格式</h4><pre><code>    Excel数据保持格式以SaleSheetContent.xlsx例。每行分别对应商品名称、型号、数量、单价、总价、时间。如下所示：
+</code></pre><p>小米手机    lalalala    400    2000    800000    2022-05-23T15:46:12.000+00:00</p>
+<h4 id="6-3-数据库表"><a href="#6-3-数据库表" class="headerlink" title="6.3 数据库表"></a>6.3 数据库表</h4><pre><code>数据库中包含的所有表
+</code></pre><p><img src="https://s2.loli.net/2022/12/07/qPISLeTsfOyrjC8.jpg" alt="数据库中包含的所有表.jpg"></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://www.hongzixian.cn">HongZiXian</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章連結: </span><span class="post-copyright-info"><a href="https://www.hongzixian.cn/2022/05/03/%E5%BA%AB%E5%AD%98%E7%AE%A1%E7%90%86%E7%B3%BB%E7%B5%B1(ERP)-%E9%AB%94%E7%B3%BB%E7%BB%93%E6%A7%8B%E6%96%87%E6%AA%94/">https://www.hongzixian.cn/2022/05/03/%E5%BA%AB%E5%AD%98%E7%AE%A1%E7%90%86%E7%B3%BB%E7%B5%B1(ERP)-%E9%AB%94%E7%B3%BB%E7%BB%93%E6%A7%8B%E6%96%87%E6%AA%94/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版權聲明: </span><span class="post-copyright-info">本部落格所有文章除特別聲明外，均採用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 許可協議。轉載請註明來自 <a href="https://www.hongzixian.cn" target="_blank">King's Backyard</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E9%A0%85%E7%9B%AE/">項目</a><a class="post-meta__tags" href="/tags/%E6%96%87%E6%AA%94/">文檔</a></div><div class="post_share"><div class="social-share" data-image="https://s2.loli.net/2022/12/07/z3CJbWMnAHYVOZ8.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/04/12/C++%E6%A6%82%E8%BF%B0/"><img class="prev-cover" src="https://s2.loli.net/2022/12/08/ACt1YB2fTUVuILP.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">C++概述</div></div></a></div><div class="next-post pull-right"><a href="/2022/06/28/%E5%BA%AB%E5%AD%98%E7%AE%A1%E7%90%86%E7%B3%BB%E7%B5%B1(ERP)-%E8%A9%B3%E7%B4%B0%E8%A8%AD%E8%A8%88%E6%96%87%E6%AA%94/"><img class="next-cover" src="https://s2.loli.net/2022/12/07/yWuij3vfAm1ISPT.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">庫存管理系統(ERP)-詳細設計文檔</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相關推薦</span></div><div class="relatedPosts-list"><div><a href="/2022/03/22/%E5%BA%AB%E5%AD%98%E7%AE%A1%E7%90%86%E7%B3%BB%E7%B5%B1(ERP)-%E7%94%A8%E4%BE%8B%E6%96%87%E6%AA%94/" title="庫存管理系統(ERP)-用例文檔"><img class="cover" src="https://s2.loli.net/2022/12/06/e4wvXMp2N95xHIP.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-22</div><div class="title">庫存管理系統(ERP)-用例文檔</div></div></a></div><div><a href="/2022/06/28/%E5%BA%AB%E5%AD%98%E7%AE%A1%E7%90%86%E7%B3%BB%E7%B5%B1(ERP)-%E8%A9%B3%E7%B4%B0%E8%A8%AD%E8%A8%88%E6%96%87%E6%AA%94/" title="庫存管理系統(ERP)-詳細設計文檔"><img class="cover" src="https://s2.loli.net/2022/12/07/yWuij3vfAm1ISPT.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-06-28</div><div class="title">庫存管理系統(ERP)-詳細設計文檔</div></div></a></div><div><a href="/2022/04/01/%E5%BA%AB%E5%AD%98%E7%AE%A1%E7%90%86%E7%B3%BB%E7%B5%B1(ERP)-%E9%9C%80%E6%B1%82%E8%A6%8F%E6%A0%BC%E8%AA%AA%E6%98%8E%E6%96%87%E6%A1%A3/" title="庫存管理系統(ERP)-需求規格說明文档"><img class="cover" src="https://s2.loli.net/2022/12/06/dfP1S3pyCEbNJ62.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-04-01</div><div class="title">庫存管理系統(ERP)-需求規格說明文档</div></div></a></div><div><a href="/2022/10/10/PerkyPet%E9%A0%85%E7%9B%AE-%E9%A0%85%E7%9B%AE%E5%90%AF%E5%8B%95%E6%96%87%E6%AA%94/" title="PerkyPet項目-項目启動文檔"><img class="cover" src="https://s2.loli.net/2022/11/29/w7EMjvQHZgeU8Op.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-10-10</div><div class="title">PerkyPet項目-項目启動文檔</div></div></a></div><div><a href="/2022/11/09/PerkyPet%E9%A0%85%E7%9B%AE-%E5%95%86%E4%B8%9A%E6%A8%A1%E5%BC%8F%E8%AF%84%E4%BC%B0/" title="PerkyPet項目-商業模式評估"><img class="cover" src="https://s2.loli.net/2022/11/30/NWr8K2bTumnlFR1.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-09</div><div class="title">PerkyPet項目-商業模式評估</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://s2.loli.net/2022/11/22/gqkpnz3Prte8RQU.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">HongZiXian</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">18</div></a><a href="/tags/"><div class="headline">標籤</div><div class="length-num">19</div></a><a href="/categories/"><div class="headline">分類</div><div class="length-num">5</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/a2064777923"><i class="fab fa-github"></i><span>前往我的主頁</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/a2064777923" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="/a2064777923@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">v2.4 更新導航欄置中，音樂播放插件</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目錄</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%BC%95%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">1. 引言</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-%E7%BC%96%E5%88%B6%E7%9B%AE%E7%9A%84"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 编制目的</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-%E8%AF%8D%E6%B1%87%E8%A1%A8"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 词汇表</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 参考资料</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E4%BA%A7%E5%93%81%E6%A6%82%E8%BF%B0"><span class="toc-number">2.</span> <span class="toc-text">2. 产品概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E9%80%BB%E8%BE%91%E8%A7%86%E8%A7%92"><span class="toc-number">3.</span> <span class="toc-text">3. 逻辑视角</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E7%BB%84%E5%90%88%E8%A7%86%E8%A7%92"><span class="toc-number">4.</span> <span class="toc-text">4. 组合视角</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1-%E5%BC%80%E5%8F%91%E5%8C%85%E5%9B%BE"><span class="toc-number">4.1.</span> <span class="toc-text">4.1 开发包图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-%E8%BF%90%E8%A1%8C%E6%97%B6%E8%BF%9B%E7%A8%8B"><span class="toc-number">4.2.</span> <span class="toc-text">4.2 运行时进程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-3-%E7%89%A9%E7%90%86%E9%83%A8%E7%BD%B2"><span class="toc-number">4.3.</span> <span class="toc-text">4.3 物理部署</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E6%8E%A5%E5%8F%A3%E8%A7%86%E8%A7%92"><span class="toc-number">5.</span> <span class="toc-text">5. 接口视角</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5-1-%E6%A8%A1%E5%9D%97%E7%9A%84%E8%81%8C%E8%B4%A3"><span class="toc-number">5.1.</span> <span class="toc-text">5.1 模块的职责</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2%E5%90%84%E5%B1%82%E9%9D%A2%E7%9A%84%E5%88%86%E8%A7%A3"><span class="toc-number">6.</span> <span class="toc-text">5.2各层面的分解</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2-%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2%E5%B1%82%E7%9A%84%E5%88%86%E8%A7%A3"><span class="toc-number">6.1.</span> <span class="toc-text">5.2 用户界面层的分解</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#5-2-1%E7%95%8C%E9%9D%A2%E6%A8%A1%E5%9D%97%E8%81%8C%E8%B4%A3%E4%B8%8E%E9%9C%80%E6%8E%A5%E5%8F%A3"><span class="toc-number">6.1.1.</span> <span class="toc-text">5.2.1界面模块职责与需接口</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-2-2-%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2%E6%A8%A1%E5%9D%97%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86"><span class="toc-number">6.1.2.</span> <span class="toc-text">5.2.2 用户界面模块设计原理</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-3-%E4%B8%9A%E5%8A%A1%E9%80%BB%E8%BE%91%E5%B1%82%E7%9A%84%E5%88%86%E8%A7%A3"><span class="toc-number">6.2.</span> <span class="toc-text">5.3 业务逻辑层的分解</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#5-3-1%E4%B8%9A%E5%8A%A1%E5%B1%82%E6%A8%A1%E5%9D%97%E7%9A%84%E8%81%8C%E8%B4%A3"><span class="toc-number">6.2.1.</span> <span class="toc-text">5.3.1业务层模块的职责</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-3-2-%E4%B8%9A%E5%8A%A1%E9%80%BB%E8%BE%91%E5%B1%82%E6%A8%A1%E5%9D%97%E7%9A%84%E6%8E%A5%E5%8F%A3%E8%A7%84%E8%8C%83%E4%B8%8E%E9%9C%80%E6%8E%A5%E5%8F%A3"><span class="toc-number">6.2.2.</span> <span class="toc-text">5.3.2 业务逻辑层模块的接口规范与需接口</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-4-%E6%95%B0%E6%8D%AE%E5%B1%82%E7%9A%84%E5%88%86%E8%A7%A3"><span class="toc-number">6.3.</span> <span class="toc-text">5.4 数据层的分解</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#5-4-1-%E6%95%B0%E6%8D%AE%E5%B1%82%E6%A8%A1%E5%9D%97%E7%9A%84%E8%81%8C%E8%B4%A3"><span class="toc-number">6.3.1.</span> <span class="toc-text">5.4.1 数据层模块的职责</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-4-2-%E6%95%B0%E6%8D%AE%E5%B1%82%E6%A8%A1%E5%9D%97%E7%9A%84%E6%8E%A5%E5%8F%A3%E8%A7%84%E8%8C%83"><span class="toc-number">6.3.2.</span> <span class="toc-text">5.4.2 数据层模块的接口规范</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E4%BF%A1%E6%81%AF%E8%A7%86%E8%A7%92"><span class="toc-number">7.</span> <span class="toc-text">6. 信息视角</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#6-1-%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E5%8C%96%E5%AF%B9%E8%B1%A1"><span class="toc-number">7.1.</span> <span class="toc-text">6.1 数据持久化对象</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-2-Excel%E6%8C%81%E4%B9%85%E5%8C%96%E6%A0%BC%E5%BC%8F"><span class="toc-number">7.2.</span> <span class="toc-text">6.2 Excel持久化格式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-3-%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8"><span class="toc-number">7.3.</span> <span class="toc-text">6.3 数据库表</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/12/07/Web%E5%89%8D%E8%AB%AF%E6%B0%B4%E5%8D%B0%E6%96%B9%E6%A1%88/" title="Web前端水印方案"><img src="https://s2.loli.net/2022/12/07/6D1ymZrpxqoh5e7.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Web前端水印方案"/></a><div class="content"><a class="title" href="/2022/12/07/Web%E5%89%8D%E8%AB%AF%E6%B0%B4%E5%8D%B0%E6%96%B9%E6%A1%88/" title="Web前端水印方案">Web前端水印方案</a><time datetime="2022-12-07T06:16:07.000Z" title="發表於 2022-12-07 14:16:07">2022-12-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/24/%E5%9F%BA%E6%96%BC%E7%BD%AE%E4%BF%A1%E5%AD%B8%E7%BF%92%E7%9A%84%E8%AD%A6%E5%91%8A%E6%95%B8%E6%93%9A%E9%9B%86%E5%8E%BB%E5%99%AA%E6%8A%80%E8%A1%93/" title="基於置信學習的警告數據集去噪技術"><img src="https://s2.loli.net/2022/11/24/f9hnyvp1Y5iDmbK.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="基於置信學習的警告數據集去噪技術"/></a><div class="content"><a class="title" href="/2022/11/24/%E5%9F%BA%E6%96%BC%E7%BD%AE%E4%BF%A1%E5%AD%B8%E7%BF%92%E7%9A%84%E8%AD%A6%E5%91%8A%E6%95%B8%E6%93%9A%E9%9B%86%E5%8E%BB%E5%99%AA%E6%8A%80%E8%A1%93/" title="基於置信學習的警告數據集去噪技術">基於置信學習的警告數據集去噪技術</a><time datetime="2022-11-24T15:19:30.000Z" title="發表於 2022-11-24 23:19:30">2022-11-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/22/hexo%E4%B8%BB%E9%A2%98%E9%AD%94%E6%94%B9/" title="hexo主题魔改"><img src="https://s2.loli.net/2022/11/23/cgS1Mo89mrXuNlj.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="hexo主题魔改"/></a><div class="content"><a class="title" href="/2022/11/22/hexo%E4%B8%BB%E9%A2%98%E9%AD%94%E6%94%B9/" title="hexo主题魔改">hexo主题魔改</a><time datetime="2022-11-22T11:48:46.000Z" title="發表於 2022-11-22 19:48:46">2022-11-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/22/butterfly%E4%B8%BB%E9%A1%8C%E4%B8%80%E4%BA%9B%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" title="Butterfly主題一些使用方法"><img src="https://s2.loli.net/2022/11/23/cgS1Mo89mrXuNlj.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Butterfly主題一些使用方法"/></a><div class="content"><a class="title" href="/2022/11/22/butterfly%E4%B8%BB%E9%A1%8C%E4%B8%80%E4%BA%9B%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" title="Butterfly主題一些使用方法">Butterfly主題一些使用方法</a><time datetime="2022-11-22T11:47:56.000Z" title="發表於 2022-11-22 19:47:56">2022-11-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/22/%E7%94%A8Hexo%E5%92%8CVercel%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/" title="利用Hexo和Vercel搭建博客"><img src="https://s2.loli.net/2022/11/22/k8tScd6TbD9Ka5Y.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="利用Hexo和Vercel搭建博客"/></a><div class="content"><a class="title" href="/2022/11/22/%E7%94%A8Hexo%E5%92%8CVercel%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/" title="利用Hexo和Vercel搭建博客">利用Hexo和Vercel搭建博客</a><time datetime="2022-11-22T10:26:40.000Z" title="發表於 2022-11-22 18:26:40">2022-11-22</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://s2.loli.net/2022/12/07/lsa2Wy8AF6Co5vU.png')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By HongZiXian</div><div class="footer_custom_text">事穷势蹙之人，当原其初心；功成行满之士，要观其末路 -- 洪应明<p><a target="_blank" href="https://hexo.io/"><img src="https://img.shields.io/badge/Frame-Hexo-blue?style=flat&logo=hexo" title="博客框架为Hexo"></a>&nbsp;<a target="_blank" href="https://butterfly.js.org/"><img src="https://img.shields.io/badge/Theme-Butterfly-6513df?style=flat&logo=bitdefender" title="主题采用butterfly"></a>&nbsp;<a target="_blank" href="https://www.jsdelivr.com/"><img src="https://img.shields.io/badge/CDN-jsDelivr-orange?style=flat&logo=jsDelivr" title="本站使用JsDelivr为静态资源提供CDN加速"></a> &nbsp;<a target="_blank" href="https://vercel.com/ "><img src="https://img.shields.io/badge/Hosted-Vervel-brightgreen?style=flat&logo=Vercel" title="本站采用双线部署，默认线路托管于Vercel"></a>&nbsp;<a target="_blank" href="https://vercel.com/ "><img src="https://img.shields.io/badge/Hosted-Coding-0cedbe?style=flat&logo=Codio" title="本站采用双线部署，联通线路托管于Coding"></a>&nbsp;<a target="_blank" href="https://github.com/a2064777923/a2064777923.github.io"><img src="https://img.shields.io/badge/Source-Github-d021d6?style=flat&logo=GitHub" title="本站项目由Gtihub托管"></a>&nbsp;<a target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&logo=Claris" title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可"></a></p></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="閱讀模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="簡繁轉換">繁</button><button id="darkmode" type="button" title="淺色和深色模式轉換"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="單欄和雙欄切換"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="設定"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目錄"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到頂部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜尋</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  資料庫載入中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜尋文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><div class="aplayer no-destroy" data-id="2459826936" data-server="netease" data-type="playlist" data-fixed="true" data-autoplay="true"> </div><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="false"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --><script data-pjax>
+    function butterfly_categories_card_injector_config(){
+      var parent_div_git = document.getElementById('recent-posts');
+      var item_html = '<style>li.categoryBar-list-item{width:32.3%;}.categoryBar-list{max-height: 380px;overflow:auto;}.categoryBar-list::-webkit-scrollbar{width:0!important}@media screen and (max-width: 650px){.categoryBar-list{max-height: 320px;}}</style><div class="recent-post-item" style="height:auto;width:100%;padding:0px;"><div id="categoryBar"><ul class="categoryBar-list"><li class="categoryBar-list-item" style="background:url(https://s2.loli.net/2022/11/26/9YKJdwjMPZkNuC2.jpg);"> <a class="categoryBar-list-link" onclick="pjax.loadUrl(&quot;categories/博客相關/&quot;);" href="javascript:void(0);">博客相關</a><span class="categoryBar-list-count">4</span><span class="categoryBar-list-descr">web前端</span></li><li class="categoryBar-list-item" style="background:url(https://s2.loli.net/2022/11/22/KpEUIoJz1nrmL6P.jpg);"> <a class="categoryBar-list-link" onclick="pjax.loadUrl(&quot;categories/C/&quot;);" href="javascript:void(0);">C++</a><span class="categoryBar-list-count">1</span><span class="categoryBar-list-descr">博客相關</span></li><li class="categoryBar-list-item" style="background:url(https://s2.loli.net/2022/11/24/jwF6iMUQARpGISo.jpg);"> <a class="categoryBar-list-link" onclick="pjax.loadUrl(&quot;categories/web前端/&quot;);" href="javascript:void(0);">web前端</a><span class="categoryBar-list-count">3</span><span class="categoryBar-list-descr">煩人作業</span></li><li class="categoryBar-list-item" style="background:url(https://s2.loli.net/2022/12/08/yv5DLReTwmUEMOx.jpg);"> <a class="categoryBar-list-link" onclick="pjax.loadUrl(&quot;categories/煩人作業/&quot;);" href="javascript:void(0);">煩人作業</a><span class="categoryBar-list-count">8</span><span class="categoryBar-list-descr">C++</span></li><li class="categoryBar-list-item" style="background:url(https://s2.loli.net/2022/11/29/MlsVrg46WYSGhXd.jpg);"> <a class="categoryBar-list-link" onclick="pjax.loadUrl(&quot;categories/操作系統/&quot;);" href="javascript:void(0);">操作系統</a><span class="categoryBar-list-count">1</span><span class="categoryBar-list-descr">操作系統</span></li></ul></div></div>';
+      console.log('已挂载butterfly_categories_card')
+      parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+      }
+    if( document.getElementById('recent-posts') && (location.pathname ==='/'|| '/' ==='all')){
+    butterfly_categories_card_injector_config()
+    }
+  </script><script async src="//at.alicdn.com/t/font_2032782_8d5kxvn09md.js"></script><div class="js-pjax"><script async="async">var arr = document.getElementsByClassName('recent-post-item');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '2s');
+    arr[i].setAttribute('data-wow-delay', '1s');
+    arr[i].setAttribute('data-wow-offset', '100');
+    arr[i].setAttribute('data-wow-iteration', '1');
+  }</script><script async="async">var arr = document.getElementsByClassName('card-widget');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script></div><script defer src="https://npm.elemecdn.com/hexo-butterfly-wowjs/lib/wow.min.js"></script><script defer src="https://npm.elemecdn.com/hexo-butterfly-wowjs/lib/wow_init.js"></script><!-- hexo injector body_end end --></body></html>
